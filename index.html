@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Code Reviewer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 AI Code Reviewer</h1>
+
+    <form method="POST">
+        <textarea name="code" placeholder="Paste your code here..."></textarea>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if errors or warnings or suggestions %}
+    <div class="card score">
+        <h2>📊 Score: {{ score }}/10</h2>
+    </div>
+
+    <div class="card error">
+        <h3>❌ Errors</h3>
+        <ul>
+            {% for e in errors %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card warning">
+        <h3>⚠️ Warnings</h3>
+        <ul>
+            {% for w in warnings %}
+            <li>{{ w }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card suggestion">
+        <h3>💡 Suggestions</h3>
+        <ul>
+            {% for s in suggestions %}
+            <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if improved_code %}
+    <div class="card">
+        <h3>✨ Improved Code</h3>
+        <pre>{{ improved_code }}</pre>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+
+</body>
+</html>
