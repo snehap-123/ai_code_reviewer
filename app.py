@@ -1,3 +1,4 @@
+from flask import Flask, render_template, request
 from scoring import calculate_score
 from suggestion_engine import generate_suggestions
 from pylint_engine import run_pylint
