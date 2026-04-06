@@ -1,8 +1,7 @@
-from analyzer.scoring import calculate_score
-from flask import Flask, render_template, request
-from analyzer.pylint_engine import run_pylint
-from analyzer.suggestion_engine import generate_suggestions
-from analyzer.improver import improve_code
+from scoring import calculate_score
+from suggestion_engine import generate_suggestions
+from pylint_engine import run_pylint
+from improver import improve_code
 
 app = Flask(__name__)
 
